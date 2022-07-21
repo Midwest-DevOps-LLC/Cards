@@ -1,0 +1,706 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model CardsAgainstHumanity.Models.GamePlay
+
+@{
+    ViewData["Title"] = "Playing";
+    ViewBag.Page = "Game";
+
+    var userID = Context.Session.GetInt32("UserID");
+
+    var isCzar = Model.GameState.CurrentPlayerCzar.UserID == userID;
+
+    var yourPlayer = Model.GameState.Players.Where(x => x.UserID == userID).ToList().FirstOrDefault();
+}
+
+<style>
+    /*.card
+    {
+        padding: 2px 16px;
+        border-radius: .35em;
+        border: 1px solid black;
+        height: 300px;
+        width: 200px;
+        display: inline-flex;
+    }*/
+    .card {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #999;
+        padding: 15px;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        margin: .25em;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    .card-selected {
+        background-color: lightgray;
+    }
+
+    .card-bottom {
+        font-size: 10pt;
+    }
+
+    .card-black {
+        background-color: black;
+        color: white;
+    }
+
+    .wrap {
+        height: 200px;
+        display: flex;
+    }
+
+        .wrap span {
+            align-self: flex-end;
+        }
+
+    .playerDisplay {
+        width: 200px;
+        border-bottom: 1px solid #999;
+        padding: 15px;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        margin: .25em;
+    }
+
+    .chatBox {
+        width: 100%;
+        border: 1px solid #999;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        min-height: 15em;
+        max-height: 15em;
+        margin-bottom: .25em;
+        overflow: auto;
+        font-size: .75em;
+    }
+
+    .card-disabled {
+        background-color: lightgray;
+        cursor: no-drop;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="background-color:white; border-radius:.25em; padding:2em;">
+        <h1>Playing</h1>
+        <hr />
+        <br />
+
+
+        <div class="row">
+            <!--Cards In Play-->
+            <div id="blackCard">
+                <div class="card card-black" id="b@(Model.GameState.CurrentBlackCard.BlackCardID)">
+                    <div class="card-text">
+                        @Html.Raw(Model.GameState.CurrentBlackCard.Text)
+                    </div>
+                    <div class="wrap card-bottom">
+                        <span>@(string.IsNullOrEmpty(Model.GameState.CurrentBlackCard.DeckName) ? Model.GameState.CurrentBlackCard.Decks.FirstOrDefault().Name : Model.GameState.CurrentBlackCard.DeckName)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="playedCards">
+                @foreach (var player in Model.GameState.Players)
+                {
+                    foreach (var submittedCard in player.SubmittedCards)
+                    {
+                        <div class="card" id="s@(submittedCard.WhiteCardID)" onclick="CardClicked(this)">
+                            <div class="card-text">
+                                @if (Model.GameState.ShowPlayedCards)
+                                {
+                                    @(Html.Raw(submittedCard.Text))
+                                }
+                            </div>
+                            <div class="wrap card-bottom">
+                                <span>
+                                    @if (Model.GameState.ShowPlayedCards)
+                                    {
+                                        @(Html.Raw(submittedCard.Decks.FirstOrDefault().Name))
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+
+                @{ 
+                    var enableButton = false;
+
+                    if (isCzar && Model.GameState.ShowPlayedCards)
+                    {
+                        enableButton = true;
+                    }
+
+                    if (isCzar == false && Model.GameState.ShowPlayedCards == false && yourPlayer.SubmittedCards.Count() <= 0)
+                    {
+                        enableButton = true;
+                    }
+                }
+
+                <button class="btn btn-outline-primary" type="button" id="sendCard" onclick="SubmitCard()" @(enableButton ? "" : "disabled")>Submit Card</button>
+            </div>
+        </div>
+
+        <div class="row" id="yourCards">
+            <!--Your Cards-->
+            @{
+                
+
+                foreach (var card in yourPlayer.WhiteCards)
+                {
+                    <div class="card @(enableButton ? "" : "card-disabled")" id="w@(card.WhiteCardID)" onclick="CardClicked(this)">
+                        <div class="card-text">
+                            @Html.Raw(card.Text)
+                        </div>
+                        <div class="wrap card-bottom">
+                            <span>@(string.IsNullOrEmpty(card.DeckName) ? card.Decks.FirstOrDefault().Name : card.DeckName)</span>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-lg-4">
+                <!--Player list-->
+                <h3>Players</h3>
+                <hr />
+                <br />
+
+                <div id="playerList">
+                    <table id="playerTable">
+                        @foreach (var player in Model.GameState.Players)
+                        {
+                            var isPlayerCzar = Model.GameState.CurrentPlayerCzar.UserID == player.UserID;
+
+                            <tr>
+                                <td>
+                                    <div class="playerDisplay" id="p@(player.UserID)">
+                                        <span>@player.UserName</span>
+                                        <span style="float:right">@player.Score</span>
+                                        <div class="playerStatus" id="ps@(player.UserID)">
+                                            @if (isPlayerCzar)
+                                            {
+                                                <p style="font-size: 10px; margin-bottom: 0rem;">Card Czar</p>
+                                            }
+                                            else if (player.SubmittedCards.Any() == false)
+                                            {
+                                                <p style="font-size: 10px; margin-bottom: 0rem;">Selecting</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <!--Chat-->
+                <h3>Chat</h3>
+                <hr />
+                <br />
+
+                <div class="chatBox">
+                    <ul id="messagesList"></ul>
+                </div>
+
+                <div class="chatInput">
+                    <div class="input-group mb-3">
+                        <input type="text" id="messageInput" class="form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="sendButton">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<input type="hidden" id="GUID" />
+<input type="hidden" id="UserID" value="@userID"/>
+<input type="hidden" id="GameID" value="@Model.Game.GameID" />
+
+@section Scripts {
+    <script src="~/js/jquery.fittext.js"></script>
+    <script>
+        jQuery(".card-text").fitText();
+        jQuery(".playerDisplay").fitText();
+    </script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+
+    <script>
+        "use strict";
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+
+        //Disable send button until connection is established
+        document.getElementById("sendButton").disabled = true;
+
+        connection.on("ReceiveMessage", function (guid, message) {
+            var msg = message.replace(/&/g, "&amp;"); //.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+            var username = GetUserNameFromGUID(guid);
+
+            var encodedMsg = username + ": " + msg;
+            var li = document.createElement("li");
+            li.innerText = encodedMsg;
+            document.getElementById("messagesList").appendChild(li).scrollIntoView();
+        });
+
+        var yourself;
+
+        connection.on("YouJoined", function (player) {
+            yourself = player;
+
+            document.getElementById("GUID").value = player.guid;
+        });
+
+        connection.on("PlayerJoined", function (player) {
+            var gameID = parseInt(document.getElementById("GameID").value);
+
+            connection.invoke("GetPlayerList", gameID).catch(function (err) {
+                return console.error(err.toString());
+            });
+        });
+
+        connection.start().then(function () {
+            document.getElementById("sendButton").disabled = false;
+
+            var userID = parseInt(document.getElementById("UserID").value);
+            var gameID = parseInt(document.getElementById("GameID").value);
+
+            connection.invoke("Join", userID, gameID).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            connection.invoke("GetPlayerList", gameID).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        var players;
+
+        connection.on("PlayerList", function (p) {
+            players = p;
+
+            ClearPlayerList();
+
+            p.forEach(function (play) {
+                AddPlayer(play.userID, play.userName, play.score);
+
+                if (play.isCzar == true) {
+                    PlayerStatusChange(play.userID, 'Card Czar');
+                }
+                else if (play.submittedCards.length <= 0) {
+                    PlayerStatusChange(play.userID, 'Submitting');
+                }
+            });
+
+            console.log("AmICzar:" + AmICzar());
+
+            if (AmICzar() == true && allCardsSubmitted == false) {
+                CardSelectEnabled(false);
+                DisableYourCards();
+            }
+            else if (AmICzar() == true && allCardsSubmitted == true) {
+                CardSelectEnabled(true);
+                EnableYourCards();
+            }
+            else if (allCardsSubmitted == false) {
+                CardSelectEnabled(true);
+                EnableYourCards();
+            }
+            else {
+                CardSelectEnabled(false);
+                DisableYourCards();
+            }
+        });
+
+        var allCardsSubmitted = @(Model.GameState.ShowPlayedCards ? "true" : "false");
+
+        connection.on("SubmittedCard", function (userID) {
+            console.log("submittedcard");
+            AddSelectedCard('', '', '');
+            PlayerStatusChange(userID, 'Selected');
+        });
+
+        connection.on("CardsRecieved", function (cards) {
+            try
+            {
+                console.log("got cards");
+
+                RemoveWhiteCards();
+
+                console.log(cards);
+
+                cards.forEach(function (card) {
+                    var deckName = '';
+
+                    if (card.deckName == '') {
+                        deckName = card.decks[0].name;
+                    } else {
+                        deckName = card.deckName;
+                    }
+
+                    AddWhiteCard(card.whiteCardID, card.text, deckName);
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        });
+
+        connection.on("PlayerWonRound", function (name, userID, czar, blackCard) {
+            alert(name + " won the chosen!");
+
+            try {
+
+                allCardsSubmitted = false;
+
+                DeselectAllCards();
+                RemoveSelectedCards();
+
+                RemoveBlackCard();
+
+                var deckName = '';
+
+                if (blackCard.deckName == '') {
+                    deckName = blackCard.decks[0].name;
+                } else {
+                    deckName = blackCard.deckName;
+                }
+
+                AddBlackCard(blackCard.blackCardID, blackCard.text, deckName);
+
+                var userID = parseInt(document.getElementById("UserID").value);
+                var gameID = parseInt(document.getElementById("GameID").value);
+                connection.invoke("GetPlayerList", gameID).catch(function (err) {
+                    return console.error(err.toString());
+                });
+
+                connection.invoke("GetCards", userID, gameID).catch(function (err) {
+                    return console.error(err.toString());
+                });
+
+            } catch (e) {
+                console.log(e);
+            }
+
+            //console.log("AmICzar:" + AmICzar());
+
+            //if (AmICzar() == true) {
+            //    CardSelectEnabled(false);
+            //    DisableYourCards();
+            //}
+            //else {
+            //    CardSelectEnabled(true);
+            //    EnableYourCards();
+            //}
+        });
+
+        connection.on("AllCardsSubmitted", function (cards) { //TODO change user status
+            RemoveSelectedCards();
+
+            allCardsSubmitted = true;
+            DeselectAllCards();
+
+            cards.forEach(function (e) {
+                var deckName = '';
+
+                if (e.deckName == '') {
+                    deckName = e.decks[0].name;
+                } else {
+                    deckName = e.deckName;
+                }
+
+                AddSelectedCard(e.whiteCardID, e.text, deckName);
+            });
+
+            var amICzar = AmICzar();
+
+            if (amICzar == true) {
+                CardSelectEnabled(true);
+            }
+            else {
+                CardSelectEnabled(false);
+            }
+        });
+
+        document.getElementById("sendButton").addEventListener("click", function (event) {
+            var user = document.getElementById("GUID").value;
+            var message = document.getElementById("messageInput").value;
+            connection.invoke("SendMessage", user, message).catch(function (err) {
+                return console.error(err.toString());
+            });
+            document.getElementById("messageInput").value = "";
+            event.preventDefault();
+        });
+
+        function IsCzarTurn() {
+            var allPlayersSelected = true;
+
+            players.forEach(function (play) {
+                if (play.isCzar == false) {
+                    if (play.submittedCards.length <= 0) {
+                        allPlayersSelected = false;
+                    }
+                }
+            });
+
+            return allPlayersSelected;
+        }
+
+        function AmICzar() {
+            var guid = document.getElementById("GUID").value;
+
+            var czar = false;
+
+            players.forEach(function (e) {
+                var check = e.guid == guid;
+
+                if (check) {
+                    czar = e.isCzar;
+                }
+            });
+
+            return czar;
+        }
+
+        function GetUserNameFromGUID(guid) {
+            var name = '';
+
+            players.forEach(function (e) {
+                var check = e.guid == guid;
+
+                if (check) {
+                    console.log(e.userName);
+                    name = e.userName;
+                }
+            });
+
+            return name;
+        }
+
+        function DisableYourCards() {
+            $('#yourCards .card').each(function (i, e) {
+                var ob = $('#' + $(e)[0].id);
+                ob.addClass("card-disabled");
+            });
+        }
+
+        function EnableYourCards() {
+            $('#yourCards .card').each(function (i, e) {
+                var ob = $('#' + $(e)[0].id);
+                ob.removeClass("card-disabled");
+            });
+        }
+
+        function AddBlackCard(id, text, deckName) {
+            var cardStr = `<div class="card card-black" id="b${id}">
+                    <div class="card-text">
+                        ${text}
+                    </div>
+                    <div class="wrap card-bottom">
+                        <span>${deckName}</span>
+                    </div>
+                </div>`;
+
+            $('#blackCard').append(cardStr);
+            jQuery("#b"+id).fitText();
+        }
+
+        function RemoveBlackCard() {
+            $('#blackCard').empty();
+        }
+
+        function AddWhiteCard(id, text, deckName) {
+            var cardStr = `<div class="card" id="w${id}" onclick="CardClicked(this)">
+                        <div class="card-text">
+                            ${text}
+                        </div>
+                        <div class="wrap card-bottom">
+                            <span>${deckName}</span>
+                        </div>
+                    </div>`;
+
+            $('#yourCards').append(cardStr);
+            jQuery("#w"+id).fitText();
+        }
+
+        function RemoveWhiteCards() {
+            $('#yourCards').empty();
+        }
+
+        function RemoveWhiteCard(id) {
+            $('#yourCards #'+id).remove();
+        }
+
+        function AddSelectedCard(id, text, deckName) {
+            var cardStr = `<div class="card" id="s${id}" onclick="CardClicked(this)">
+                                <div class="card-text">
+                                    ${text}
+                                </div>
+                                <div class="wrap card-bottom">
+                                    <span>
+                                        ${deckName}
+                                    </span>
+                                </div>
+                            </div>`;
+
+            $('#playedCards').append(cardStr);
+            jQuery("#s" + id).fitText();
+        }
+
+        function RemoveSelectedCards() {
+            $('#playedCards').empty();
+        }
+
+        function ClearPlayerList() {
+            $('#playerTable').empty();
+        }
+
+        function AddPlayer(userID, userName, score) {
+            var htmlStr = `<tr>
+                                <td>
+                                    <div class="playerDisplay" id="p${userID}">
+                                        <span>${userName}</span>
+                                        <span style="float:right">${score}</span>
+                                        <div class="playerStatus" id="ps${userID}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>`;
+
+            $('#playerTable').append(htmlStr);
+            jQuery("#p"+userID).fitText();
+        }
+
+        function AddPlayerScore(userID, userName) {
+            var htmlStr = `<tr>
+                                <td>
+                                    <div class="playerDisplay" id="p${userID}">
+                                        <span>${userName}</span>
+                                        <div class="playerStatus" id="ps${userID}">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>`;
+
+            $('#playerTable').append(htmlStr);
+            jQuery("#p"+userID).fitText();
+        }
+
+        function PlayerStatusChange(userID, status) {
+            var htmlStr = `<p style="font-size: 10px; margin-bottom: 0rem;">${status}</p>`
+
+
+            $('#ps' + userID)[0].innerHTML = htmlStr;
+        }
+
+        var lastClicked = null;
+
+        function CardSelectEnabled(enable) {
+            if (enable == false) {
+                $('#sendCard').prop('disabled', true);
+            } else {
+                $('#sendCard').prop('disabled', false);
+            }
+        }
+
+        function DeselectAllCards() {
+            $(".card").each(function() {
+                $(this).removeClass("card-selected");
+            });
+
+            lastClicked = null;
+        }
+
+        function CardClicked(obj)
+        {
+            //Deselect all cards
+            DeselectAllCards();
+
+            //Select the clicked card
+
+            console.log(obj);
+
+            if (AmICzar() == true && allCardsSubmitted == true) {
+                if (obj.id.includes("s") == true) {
+                    var card = $('#' + obj.id);
+                    card.addClass("card-selected");
+                    lastClicked = obj;
+                }
+            } else if (AmICzar() == false && allCardsSubmitted == false) {
+                if (obj.id.includes("w") == true) {
+                    var card = $('#' + obj.id);
+                    card.addClass("card-selected");
+                    lastClicked = obj;
+                }
+            }
+
+            console.log(obj);
+        }
+
+        function SubmitCard() {
+
+            if (lastClicked != null) {
+
+                if (allCardsSubmitted == false && AmICzar() == false) {
+                    var cardID = parseInt(lastClicked.id.replace('w', ''));
+
+                    var userID = parseInt(document.getElementById("UserID").value);
+                    var gameID = parseInt(document.getElementById("GameID").value);
+
+                    connection.invoke("SubmitCard", userID, cardID, gameID).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+
+                    CardSelectEnabled(false);
+                    DeselectAllCards();
+                    DisableYourCards();
+                }
+                else if (allCardsSubmitted == true && AmICzar() == true) {
+                    var cardID = parseInt(lastClicked.id.replace('s', ''));
+
+                    var userID = parseInt(document.getElementById("UserID").value);
+                    var gameID = parseInt(document.getElementById("GameID").value);
+
+                    connection.invoke("SubmitCardCzar", userID, cardID, gameID).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+
+                    CardSelectEnabled(false);
+                    DeselectAllCards();
+                }
+            }
+            else {
+                alert("No card is selected");
+            }
+        }
+
+    </script>
+}

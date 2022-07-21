@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    ViewBag.Page = "Login";
+}
+
+<style>
+    .container-fluid {
+        background-color: #f6f6f6;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Log In</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="frmLogin">
+                            <input type="hidden" name="application" value="RPGParty" />
+                            @if (!string.IsNullOrEmpty(ViewBag.Registration))
+                            {
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="alert alert-success" role="alert">
+                                            @ViewBag.Registration
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="row" id="LoginValidation" style="display: none">
+                                <div class="col-sm-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        Username / password is incorrect
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username" name="Username" id="username">
+                            </div>
+                            <span id="username_error" style="display:none; color:red"></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" name="Password" id="password">
+                            </div>
+                            <span id="password_error" style="display:none; color:red"></span>
+                            <div class="form-group">
+                                <button class="btn btn-primary float-right" type="submit" onclick="SubmitLoginForm(); return false;">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center">
+                            <a href="#" onclick="ShowForgotPasswordModal()">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ShowMediumAndBelow">
+        <div style="margin-top:.25em;">&nbsp;</div>
+    </div>
+    <div class="col-md-5">
+        <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Register</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="frmRegister">
+                            <input type="hidden" name="application" value="RPGParty" />
+                            <div class="row" id="RegisterValidation" style="display: none">
+                                <div class="col-sm-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        Username / password is incorrect
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username" name="username" id="regusername">
+                            </div>
+                            <span id="regusername_error" style="display:none; color:red"></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Email" name="email" id="email">
+                            </div>
+                            <span id="email_error" style="display:none; color:red"></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" name="password" id="regpassword">
+                            </div>
+                            <span id="regpassword_error" style="display:none; color:red"></span>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Retype password" name="RetypePassword" id="retype-password">
+                            </div>
+                            <span id="retype-password_error" style="display:none; color:red"></span>
+                            <div class="form-group">
+                                <button class="btn btn-primary float-right" type="submit" onclick="SubmitRegisterForm(); return false;">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="forgotpassword">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Fuck you</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseForgotPasswordModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>I am not going to reset your password you little piece of shit. Go fuck yourself cunt.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="CloseForgotPasswordModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function SubmitLoginForm() {
+            SubmitForm('#frmLogin', '/Login/Login', 'Post', '#LoginValidation', true, 'ReloadPage');
+        }
+
+        function SubmitRegisterForm() {
+            SubmitForm('#frmRegister', '/Login/Register', 'Post', '#RegisterValidation', true, 'NULL');
+        }
+
+        function ReloadPage() {
+            window.location = "/Home/Index";
+        }
+
+        function ShowForgotPasswordModal() {
+            $('#forgotpassword').css('display', 'block');
+        }
+
+        function CloseForgotPasswordModal() {
+            $('#forgotpassword').css('display', 'none');
+        }
+
+    </script>
+}

@@ -1,0 +1,533 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+/* The Modal (background) */
+.modal {
+    z-index: 9999999999999; /* Sit on top */
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.StatusPopup {
+    position: absolute;
+    width: 40%;
+    height: 100px;
+    z-index: 1001;
+    left: 30%;
+    margin: -100px 0 0 -150px;
+    background: red;
+}
+
+.StatusPopup {
+    display: none;
+    background-color: #28a745;
+    color: white;
+    padding: 1em;
+    font-size: large;
+    font-weight: bold;
+    position: fixed;
+    text-align: center;
+    left: 50%;
+    margin-left: -120px;
+    width: 13em;
+    z-index: 9999;
+    bottom: 10px;
+    height: 4em;
+}
+
+@@media (min-width: 768px) {
+    .StatusPopup {
+        display: none;
+        background-color: #28a745;
+        color: white;
+        padding: 1em;
+        font-size: large;
+        font-weight: bold;
+        position: fixed;
+        text-align: center;
+        left: 50%;
+        margin-left: -100px;
+        width: 20em;
+        z-index: 9999;
+        bottom: 10px;
+    }
+}
+
+
+
+i {
+    color: #f4511e;
+}
+
+.form-group {
+}
+
+body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.jumbotron {
+    background-color: #1FA89C;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    border-radius: 0;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+.bg-grey {
+    background-color: #f6f6f6;
+}
+
+.logo-small {
+    color: #f4511e;
+    font-size: 50px;
+}
+
+.logo {
+    color: #f4511e;
+    font-size: 200px;
+}
+
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+
+/*.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f4511e;
+}
+
+.carousel-indicators li {
+    border-color: #f4511e;
+}
+
+    .carousel-indicators li.active {
+        background-color: #f4511e;
+    }*/
+
+.carousel-width {
+    width: 50%;
+}
+
+.item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+
+.item span {
+    font-style: normal;
+}
+
+.panel {
+    border: 1px solid #f4511e;
+    border-radius: 0 !important;
+    transition: box-shadow 0.5s;
+}
+
+    .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+
+.panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+
+.panel-heading {
+    color: #fff !important;
+    background-color: #f4511e !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.panel-footer {
+    background-color: white !important;
+}
+
+    .panel-footer h3 {
+        font-size: 32px;
+    }
+
+    .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #f4511e;
+        color: #fff;
+    }
+
+.navbar {
+    margin-bottom: 0 !important;
+    background-color: #1FA89C;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #1FA89C !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+}
+
+.slideanim {
+    visibility: hidden;
+}
+
+.slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+}
+
+.showOnSmall {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+
+    .hideOnSmall {
+        display: none;
+    }
+
+    .showOnSmall {
+        display: block;
+    }
+
+    .carousel-width {
+        width: 100%;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f88d6d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #1FA89C;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #188178;
+    }
+
+@media screen and (max-width: 600px) {
+    #ttt {
+        visibility: hidden;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: none;
+    }
+
+    .carousel-width {
+        width: 100%;
+    }
+}
+
+/*Ipad Pro*/
+@media screen and (max-width: 1024px) {
+    .carousel-width {
+        width: 100%;
+    }
+}
+
+@media (min-width: 600px) {
+    #ddd {
+        visibility: hidden;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: none;
+    }
+}
+
+/* Bootstrap Medium*/
+@media (min-width: 768px) {
+}
+
+.HideMediumAndBelow {
+    display: none;
+}
+
+.ShowMediumAndBelow {
+    display: block;
+}
+
+/* Bootstrap Large */
+@media (min-width: 992px) {
+    .ShowMediumAndBelow {
+        display: none;
+    }
+
+    .HideMediumAndBelow {
+        display: block;
+    }
+}
+
+
+.ChatAddNew {
+    width: 100%;
+    padding: .25em;
+    padding-right: .5em;
+    margin: .25em;
+    border-radius: .25em;
+    background-color: #fefefe;
+}
+
+.ChatPersonSelectorBox {
+    width: 100%;
+    padding: 1.5em;
+    margin-bottom: 1em;
+    border-radius: .25em;
+    background-color: #fcfcfc;
+}
+
+.ChatPanels {
+    border-radius: .25em;
+    background-color: #eaeaea;
+    padding: 1.5em;
+    margin-bottom: 1em;
+}
+
+.ChatPanel {
+    height: 50vh;
+    overflow: auto;
+}
+
+.ChatActive {
+    background-color: #eaeaea;
+}
+
+.ChatPersonName {
+}
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+
+
+
+.RGB {
+    animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+    14% {
+        color: red;
+    }
+
+    28% {
+        color: orange;
+    }
+
+    42% {
+        color: yellow;
+    }
+
+    56% {
+        color: green;
+    }
+
+    70% {
+        color: blue;
+    }
+
+    84% {
+        color: indigo;
+    }
+
+    100% {
+        color: violet;
+    }
+}
+
+.btn {
+    margin-bottom: 5px;
+    margin-left: 5px;
+}

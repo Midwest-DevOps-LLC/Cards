@@ -1,0 +1,849 @@
+# 6/12/2020 3:13:20 PM #
+Authentication to host 'mysql.midwestdevops.com' for user 'root' using method 'mysql_native_password' failed with message: Access denied for user 'root'@'173-20-125-248.client.mchsi.com' (using password: YES)   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Authenticate(String authMethod, Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCards() in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 48
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCards() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 26MySql.DataMySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'173-20-125-248.client.mchsi.com' (using password: YES)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()Void AuthenticationFailed(System.Exception)
+# 6/12/2020 3:13:41 PM #
+Authentication to host 'mysql.midwestdevops.com' for user 'root' using method 'mysql_native_password' failed with message: Access denied for user 'root'@'173-20-125-248.client.mchsi.com' (using password: YES)   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.AuthenticationFailed(Exception ex)
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.Authenticate(Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Authenticate(String authMethod, Boolean reset)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCards() in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 48
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCards() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 26MySql.DataMySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'173-20-125-248.client.mchsi.com' (using password: YES)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.ReadPacket()
+   at MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.ReadPacket()Void AuthenticationFailed(System.Exception)
+# 6/12/2020 4:12:12 PM #
+The connection is already open.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard() in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 66
+   at DatabaseLogicLayer.CardBattles.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 71
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 42MySql.DataVoid Throw(System.Exception)
+# 6/12/2020 4:13:11 PM #
+Table 'cards.random' doesn't exist   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard() in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 79
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 43MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/12/2020 4:35:11 PM #
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT LAST_INSERT_ID()' at line 2   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle)
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 67MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/12/2020 4:38:06 PM #
+The connection is already open.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.WhiteCards.GetWhiteCardByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at DatabaseLogicLayer.CardBattles.ConvertMySQLToEntity(MySqlDataReader reader) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 245
+   at DatabaseLogicLayer.CardBattles.GerCardBattleByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 113
+   at BusinessLogicLayer.CardBattle.GetCardBattle(Int32 ID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 42MySql.DataVoid Throw(System.Exception)
+# 6/12/2020 4:39:14 PM #
+The connection is already open.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.WhiteCards.GetWhiteCardByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at DatabaseLogicLayer.CardBattles.ConvertMySQLToEntity(MySqlDataReader reader) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 245
+   at DatabaseLogicLayer.CardBattles.GerCardBattleByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 113
+   at BusinessLogicLayer.CardBattle.GetCardBattle(Int32 ID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 42MySql.DataVoid Throw(System.Exception)
+# 6/12/2020 4:46:21 PM #
+Object reference not set to an instance of an object.   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 86BusinessLogicLayerDataEntities.CardBattle CreateCardBattle()
+# 6/12/2020 5:28:18 PM #
+Incorrect integer value: 'DataEntities.WhiteCard' for column 'WinningCard' at row 1   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 92
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 100MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/12/2020 5:29:28 PM #
+Incorrect integer value: 'DataEntities.WhiteCard' for column 'WinningCard' at row 1   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle)
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 100MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/12/2020 5:34:43 PM #
+Object reference not set to an instance of an object.   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 84
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75DatabaseLogicLayerSystem.Nullable`1[System.Int64] SaveCardBattle(DataEntities.CardBattle)
+# 6/12/2020 5:36:29 PM #
+Object reference not set to an instance of an object.   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 84
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75DatabaseLogicLayerSystem.Nullable`1[System.Int64] SaveCardBattle(DataEntities.CardBattle)
+# 6/12/2020 5:40:19 PM #
+Object reference not set to an instance of an object.   at BusinessLogicLayer.CardBattle.GetCardBattle(Int32 ID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 46BusinessLogicLayerDataEntities.CardBattle GetCardBattle(Int32)
+# 6/12/2020 5:41:28 PM #
+Object reference not set to an instance of an object.   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 84
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75DatabaseLogicLayerSystem.Nullable`1[System.Int64] SaveCardBattle(DataEntities.CardBattle)
+# 6/12/2020 5:41:50 PM #
+Object reference not set to an instance of an object.   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 84
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75DatabaseLogicLayerSystem.Nullable`1[System.Int64] SaveCardBattle(DataEntities.CardBattle)
+# 6/12/2020 6:32:31 PM #
+Fatal error encountered during command execution.   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.Driver.LoadCharacterSets(MySqlConnection connection)
+   at MySql.Data.MySqlClient.Driver.Configure(MySqlConnection connection)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 72
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataMySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered attempting to read the resultset.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Reading from the stream has failed.
+ ---> System.IO.IOException: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond..
+ ---> System.Net.Sockets.SocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Security.SslStream.FillBufferAsync[TReadAdapter](TReadAdapter adapter, Int32 minSize)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TReadAdapter](TReadAdapter adapter, Memory`1 buffer)
+   at System.Net.Security.SslStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at MySql.Data.MySqlClient.TimedStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at MySql.Data.MySqlClient.MySqlStream.ReadFully(Stream stream, Byte[] buffer, Int32 offset, Int32 count)
+   at MySql.Data.MySqlClient.MySqlStream.LoadPacket()
+   at MySql.Data.MySqlClient.MySqlStream.LoadPacket()
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)MySql.Data.MySqlClient.MySqlDataReader ExecuteReader(System.Data.CommandBehavior)
+# 6/12/2020 6:35:41 PM #
+Object reference not set to an instance of an object.   at BusinessLogicLayer.CardBattle.GetCardBattle(Int32 ID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 46BusinessLogicLayerDataEntities.CardBattle GetCardBattle(Int32)
+# 6/13/2020 4:32:28 AM #
+Reference 'id' not supported (forward reference in item list)   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 89
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:33:27 AM #
+Reference 'id' not supported (forward reference in item list)   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 89
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:33:55 AM #
+Reference 'id' not supported (forward reference in item list)   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID)
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:33:59 AM #
+Unknown column 'r2.WhiteCardID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID)
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:34:32 AM #
+Unknown column 'r2.WhiteCardID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID)
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:34:44 AM #
+Could not find specified column in results: DeckID   at MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   at DatabaseLogicLayer.DBUtilities.ReturnSafeInt(MySqlDataReader reader, String columnName)
+   at DatabaseLogicLayer.Decks.ConvertMySQLToEntity(MySqlDataReader reader)
+   at DatabaseLogicLayer.WhiteCards.ConvertMySQLToEntity(MySqlDataReader reader)
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID)
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataInt32 GetOrdinal(System.String)
+# 6/13/2020 4:47:46 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:49:58 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:50:40 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:51:09 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:51:38 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:52:07 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:52:36 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:52:58 AM #
+Unknown column 'ID' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 88
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 75MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:56:34 AM #
+There is already an open DataReader associated with this Connection which must be closed first.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Decks.ConvertMySQLToEntities(MySqlCommand cmd) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Decks.cs:line 214
+   at DatabaseLogicLayer.WhiteCards.ConvertMySQLToEntity(MySqlDataReader reader, MySqlCommand cmd) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 246
+   at DatabaseLogicLayer.WhiteCards.GetRandomWhiteCard(Nullable`1 duplicateID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 96
+   at BusinessLogicLayer.CardBattle.CreateCardBattle() in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 69MySql.DataVoid Throw(System.Exception)
+# 6/13/2020 5:12:25 AM #
+Unknown column 'csw.WhiteCardID' in 'on clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Decks.GetAllDecksByWhiteCardID(Int32 userID)
+   at BusinessLogicLayer.Deck.GetAllDecksByWhiteCardID(Int32 whiteCardID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 42MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:23:34 PM #
+Table 'cards.user' doesn't exist   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Users.GetUserByUserAuthID(Int32 userAuthID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Users.cs:line 136
+   at BusinessLogicLayer.Users.GetUserByUserAuthID(Int32 userAuthID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\User.cs:line 60MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:23:40 PM #
+Table 'cards.user' doesn't exist   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Users.SaveUser(User p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Users.cs:line 215
+   at BusinessLogicLayer.Users.SaveUser(User person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\User.cs:line 92MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:27:04 PM #
+Column 'UserID' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Users.SaveUser(User p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Users.cs:line 215
+   at BusinessLogicLayer.Users.SaveUser(User person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\User.cs:line 92MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:28:41 PM #
+Column 'UserID' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Users.SaveUser(User p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Users.cs:line 215
+   at BusinessLogicLayer.Users.SaveUser(User person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\User.cs:line 92MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:30:14 PM #
+Column 'UserID' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Users.SaveUser(User p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Users.cs:line 215
+   at BusinessLogicLayer.Users.SaveUser(User person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\User.cs:line 92MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:45:49 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetWhiteCardByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 115
+   at BusinessLogicLayer.CardBattle.GetCardBattle(Int32 ID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 46MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:46:27 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetWhiteCardByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 115
+   at BusinessLogicLayer.CardBattle.GetCardBattle(Int32 ID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 46MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:47:57 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 92
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 102MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:48:08 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 92
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 102MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:49:00 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 92
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 102MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:49:15 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 92
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 102MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/13/2020 4:50:03 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 92
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 102MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/15/2020 2:13:15 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 93
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 104MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/15/2020 2:14:05 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.CardBattles.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\CardBattles.cs:line 93
+   at BusinessLogicLayer.CardBattle.SaveCardBattle(CardBattle cardBattle) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\CardBattle.cs:line 104MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/17/2020 8:33:36 PM #
+Unknown column 'ID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Decks.GetDeckByID(Int32 userID) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Decks.cs:line 74
+   at BusinessLogicLayer.Deck.GetDeckByID(Int32 id) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 58MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 12:58:05 AM #
+Column 'Description' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Decks.SaveDeck(Deck p, Boolean refreshWhiteCardLinks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Decks.cs:line 229
+   at BusinessLogicLayer.Deck.SaveCardBattle(Deck cardBattle, Boolean refreshWhiteCards) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 91MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:00:36 AM #
+Column 'DeckID' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at DatabaseLogicLayer.Decks.SaveDeck(Deck p, Boolean refreshWhiteCardLinks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Decks.cs:line 206
+   at BusinessLogicLayer.Deck.SaveCardBattle(Deck cardBattle, Boolean refreshWhiteCards) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 91MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:19:39 AM #
+Could not find specified column in results: WhiteCardID   at MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   at DatabaseLogicLayer.DBUtilities.ReturnSafeInt(MySqlDataReader reader, String columnName) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\DBManager.cs:line 44
+   at DatabaseLogicLayer.WhiteCards.ConvertMySQLToEntity(MySqlDataReader reader, MySqlCommand cmd) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 289
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCards(Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 56
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCards(Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 26MySql.DataInt32 GetOrdinal(System.String)
+# 6/18/2020 2:40:51 AM #
+Column 'DeckID' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at DatabaseLogicLayer.Decks.SaveDeck(Deck p, Boolean refreshWhiteCardLinks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Decks.cs:line 209
+   at BusinessLogicLayer.Deck.SaveCardBattle(Deck cardBattle, Boolean refreshWhiteCards) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 91MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:41:24 AM #
+Column 'DeckID' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   at DatabaseLogicLayer.Decks.SaveDeck(Deck p, Boolean refreshWhiteCardLinks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Decks.cs:line 209
+   at BusinessLogicLayer.Deck.SaveCardBattle(Deck cardBattle, Boolean refreshWhiteCards) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 91MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:43:12 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:43:13 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:43:38 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:43:38 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:44:58 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:44:58 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:59:36 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 2:59:37 AM #
+Unknown column 'cd.DeckID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.WhiteCards.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 97
+   at BusinessLogicLayer.WhiteCard.GetAllWhiteCardsByDeckID(Int32 deckID, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 78MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 6/18/2020 5:48:59 AM #
+Unknown column 'WhiteCardID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.WhiteCards.SaveWhiteCard(WhiteCard p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\WhiteCards.cs:line 292
+   at BusinessLogicLayer.WhiteCard.SaveWhiteCard(WhiteCard whiteCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\WhiteCard.cs:line 150MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:07:07 PM #
+Unknown column 'ModifiedBy' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 291
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 76MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:08:24 PM #
+Unknown column 'ModifiedBy' in 'field list'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 291
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 76MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:08:29 PM #
+Incorrect datetime value: '0001-01-01 00:00:00' for column 'ModifiedDate' at row 1   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 291
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 76MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:08:46 PM #
+Incorrect datetime value: '0001-01-01 00:00:00' for column 'ModifiedDate' at row 1   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 291
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 76MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:09:25 PM #
+Incorrect datetime value: '0001-01-01 00:00:00' for column 'ModifiedDate' at row 1   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 291
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 76MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:09:58 PM #
+Incorrect datetime value: '0001-01-01 00:00:00' for column 'ModifiedDate' at row 1   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 291
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 76MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/12/2020 6:13:32 PM #
+Parameter '@GameID' has already been defined.   at MySql.Data.MySqlClient.MySqlParameterCollection.InternalAdd(MySqlParameter value, Int32 index)
+   at MySql.Data.MySqlClient.MySqlParameterCollection.Add(MySqlParameter value)
+   at MySql.Data.MySqlClient.MySqlParameterCollection.AddWithValue(String parameterName, Object value)
+   at DatabaseLogicLayer.Games.GetGameByGameID(Int32 gameID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 63
+   at BusinessLogicLayer.Game.GetGameByGameID(Int32 gameID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 28MySql.DataMySql.Data.MySqlClient.MySqlParameter InternalAdd(MySql.Data.MySqlClient.MySqlParameter, Int32)
+# 9/13/2020 5:32:08 PM #
+The connection is already open.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at DatabaseLogicLayer.Users.GetUserByUserID(Int32 userID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Users.cs:line 44
+   at DatabaseLogicLayer.Games.GetGameByGameID(Int32 gameID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 108
+   at BusinessLogicLayer.Game.GetGameByGameID(Int32 gameID, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 28MySql.DataVoid Throw(System.Exception)
+# 9/13/2020 5:55:27 PM #
+Column 'Name' cannot be null   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGame(Game p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 507
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 92MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/13/2020 6:16:26 PM #
+Connection must be valid and open.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Games.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 135
+   at BusinessLogicLayer.Game.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 28MySql.DataVoid Throw(System.Exception)
+# 9/13/2020 6:17:00 PM #
+Connection must be valid and open.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Games.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive)
+   at BusinessLogicLayer.Game.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 28MySql.DataVoid Throw(System.Exception)
+# 9/13/2020 6:19:52 PM #
+Connection must be valid and open.   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Games.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 65
+   at BusinessLogicLayer.Game.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 28MySql.DataVoid Throw(System.Exception)
+# 9/13/2020 6:19:58 PM #
+Connection must be valid and open.   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Games.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\Games.cs:line 65
+   at BusinessLogicLayer.Game.GetGameByGameID(Int32 gameID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 28MySql.DataVoid Throw(System.Exception)
+# 9/26/2020 6:24:22 AM #
+Unknown column 'GameID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Games.SaveGameOptionsPicked(GameOptionPicked p)
+   at DatabaseLogicLayer.Games.SaveGame(Game p)
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 108MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/26/2020 6:26:11 AM #
+Fatal error encountered during command execution.   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.Games.SaveGameOptionsPicked(GameOptionPicked p)
+   at DatabaseLogicLayer.Games.SaveGame(Game p)
+   at BusinessLogicLayer.Game.SaveGame(Game person) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 108MySql.DataMySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@UserID' must be defined.
+   at MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   at MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   at MySql.Data.MySqlClient.Statement.BindParameters()
+   at MySql.Data.MySqlClient.PreparableStatement.Execute()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)MySql.Data.MySqlClient.MySqlDataReader ExecuteReader(System.Data.CommandBehavior)
+# 9/26/2020 8:54:53 PM #
+Unknown column 'g.UserID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.Games.GetGamesByUserID(Int32 userID, Boolean loadOtherInfo, Nullable`1 isActive)
+   at BusinessLogicLayer.Game.GetGamesByUserID(Int32 userID, Boolean loadOtherInfo, Nullable`1 isActive) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Game.cs:line 231MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/27/2020 2:42:15 AM #
+Nullable object must have a value.   at System.Nullable`1.get_Value()
+   at BusinessLogicLayer.BlackCard.FillInEntity(BlackCard whiteCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 185
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 152System.Private.CoreLibVoid ThrowInvalidOperationException_InvalidOperation_NoValue()
+# 9/27/2020 2:44:38 AM #
+Nullable object must have a value.   at System.Nullable`1.get_Value()
+   at BusinessLogicLayer.BlackCard.FillInEntity(BlackCard whiteCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 185
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 152System.Private.CoreLibVoid ThrowInvalidOperationException_InvalidOperation_NoValue()
+# 9/27/2020 3:16:52 AM #
+Nullable object must have a value.   at System.Nullable`1.get_Value()
+   at BusinessLogicLayer.BlackCard.FillInEntity(BlackCard whiteCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 185
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 152System.Private.CoreLibVoid ThrowInvalidOperationException_InvalidOperation_NoValue()
+# 9/27/2020 3:21:40 AM #
+Nullable object must have a value.   at System.Nullable`1.get_Value()
+   at BusinessLogicLayer.BlackCard.FillInEntity(BlackCard whiteCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 185
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 152System.Private.CoreLibVoid ThrowInvalidOperationException_InvalidOperation_NoValue()
+# 9/27/2020 3:22:53 AM #
+Parameter '@DuplicateIDs' has already been defined.   at MySql.Data.MySqlClient.MySqlParameterCollection.InternalAdd(MySqlParameter value, Int32 index)
+   at DatabaseLogicLayer.BlackCards.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1)
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 150MySql.DataMySql.Data.MySqlClient.MySqlParameter InternalAdd(MySql.Data.MySqlClient.MySqlParameter, Int32)
+# 9/27/2020 4:30:27 AM #
+There is already an open DataReader associated with this Connection which must be closed first.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DatabaseLogicLayer.BlackCards.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\BlackCards.cs:line 193
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 150MySql.DataVoid Throw(System.Exception)
+# 9/27/2020 4:40:02 AM #
+Invalid attempt to Read when reader is closed.   at MySql.Data.MySqlClient.MySqlDataReader.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlDataReader.Read()
+   at DatabaseLogicLayer.BlackCards.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1)
+   at BusinessLogicLayer.BlackCard.GetRandomBlackCardBasedOnDecks(List`1 duplicateCardIDs, List`1 deckIDs, Boolean onlyPick1) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 150MySql.DataVoid Throw(System.Exception)
+# 9/27/2020 5:18:56 PM #
+Unknown column 'WhiteCardID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.BlackCards.SaveBlackCard(BlackCard p) in C:\Users\Mark\source\repos\CardsAgainstHumanity\DatabaseLogicLayer\BlackCards.cs:line 326
+   at BusinessLogicLayer.BlackCard.SaveBlackCard(BlackCard blackCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 170MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/27/2020 5:19:46 PM #
+Unknown column 'WhiteCardID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   at DatabaseLogicLayer.BlackCards.SaveBlackCard(BlackCard p)
+   at BusinessLogicLayer.BlackCard.SaveBlackCard(BlackCard blackCard) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 170MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/27/2020 5:23:53 PM #
+There is already an open DataReader associated with this Connection which must be closed first.   at MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.BlackCards.GetBlackCardByID(Int32 id)
+   at BusinessLogicLayer.BlackCard.GetBlackCardByID(Int32 id, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 104MySql.DataVoid Throw(System.Exception)
+# 9/27/2020 5:24:45 PM #
+Unknown column 'wc.BlackCardID' in 'where clause'   at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DatabaseLogicLayer.BlackCards.GetBlackCardByID(Int32 id)
+   at BusinessLogicLayer.BlackCard.GetBlackCardByID(Int32 id, Boolean loadDecks) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\BlackCard.cs:line 104MySql.DataMySql.Data.MySqlClient.MySqlPacket ReadPacket()
+# 9/27/2020 6:21:14 PM #
+Object reference not set to an instance of an object.   at BusinessLogicLayer.Deck.FillInEntity(Deck deck) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 122
+   at BusinessLogicLayer.Deck.GetDeckByID(Int32 id, Boolean fillIn) in C:\Users\Mark\source\repos\CardsAgainstHumanity\BusinessLogicLayer\Deck.cs:line 88BusinessLogicLayerDataEntities.Deck FillInEntity(DataEntities.Deck)

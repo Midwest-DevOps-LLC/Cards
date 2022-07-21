@@ -1,0 +1,144 @@
+﻿@model DataEntities.CardBattle
+
+@{
+    ViewData["Title"] = "Card Battle";
+    ViewBag.Page = "Card Battle";
+}
+<style>
+    /*.card
+    {
+        padding: 2px 16px;
+        border-radius: .35em;
+        border: 1px solid black;
+        height: 300px;
+        width: 200px;
+        display: inline-flex;
+    }*/
+    .card {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #999;
+        padding: 15px;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        margin: .25em;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    .card-selected {
+        background-color: lightgray;
+    }
+
+    .card-bottom {
+        font-size: 10pt;
+    }
+
+    .wrap {
+        height: 200px;
+        display: flex;
+    }
+
+        .wrap span {
+            align-self: flex-end;
+        }
+</style>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="background-color:white; border-radius:.25em; padding:2em;">
+        <h1>Card Battle</h1>
+        <hr />
+        <span>Which card is better?</span>
+        <br />
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-4">
+                    <div class="card" id="@Model.Card1.WhiteCardID" onclick="CardClicked(this)">
+                        <div class="card-text">
+                            @Html.Raw(Model.Card1.Text)
+                        </div>
+                        <div class="wrap card-bottom">
+                            <span>@Model.Card1.Decks.FirstOrDefault().Name</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-4">
+                    <div class="card" id="@Model.Card2.WhiteCardID" onclick="CardClicked(this)">
+                        <div class="card-text">
+                            @Html.Raw(Model.Card2.Text)
+                        </div>
+                        <div class="wrap card-bottom">
+                            <span>@Model.Card2.Decks.FirstOrDefault().Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <input class="btn btn-primary" id="submit" type="button" onclick="Submit()" value="Submit" /></td>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section Scripts {
+    <script src="~/js/jquery.fittext.js"></script>
+    <script>
+        jQuery(".card-text").fitText();
+    </script>
+}
+
+<script>
+function Submit()
+{
+    if (lastClicked == null) {
+        alert("You haven't selected a card");
+    }
+    else
+    {
+        $("#submit").prop("disabled", true);
+
+        $.ajax({
+            url: '@Url.Action("CardBattleWinner", "CardBattle")',
+            type: 'POST',
+            data: { "ID": @Model.CardBattleID, "WinnerID": lastClicked.id },
+            success: function(msg) {
+                console.log(msg);
+
+                if (msg.error == true) {
+                    alert(msg.message);
+                    $("#submit").prop("disabled", false);
+                }
+
+                window.location.href = '@Url.Action("CardBattle", "CardBattle")';
+            },
+            complete: function (msg, bruh) {
+
+            }
+        });
+    }
+}
+
+var lastClicked = null;
+
+function CardClicked(obj)
+{
+    //Deselect all cards
+    $(".card").each(function() {
+        $(this).removeClass("card-selected");
+    });
+
+    //Select the clicked card
+    var card = $('#' + obj.id);
+    card.addClass("card-selected");
+    lastClicked = obj;
+
+    console.log(obj);
+}
+</script>

@@ -1,0 +1,217 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model CardsAgainstHumanity.Models.BlackCardSaveModel
+@{
+    ViewBag.Page = "Black Card";
+
+    var newDeck = Model.BlackCardID.HasValue == false;
+
+    var userID = Context.Session.GetInt32("UserID");
+
+    bool allowedToEdit = false;
+
+    if (userID.HasValue)
+    {
+        allowedToEdit = (userID == Model.CreatedBy || userID == 1 || newDeck);
+    }
+}
+
+<style>
+    /*.card
+    {
+        padding: 2px 16px;
+        border-radius: .35em;
+        border: 1px solid black;
+        height: 300px;
+        width: 200px;
+        display: inline-flex;
+    }*/
+    .card {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #999;
+        padding: 15px;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        margin: .25em;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    .card-selected {
+        background-color: lightgray;
+    }
+
+    .card-bottom {
+        font-size: 10pt;
+    }
+
+    .card-black {
+        background-color: black;
+        color: white;
+    }
+
+    .wrap {
+        height: 200px;
+        display: flex;
+    }
+
+        .wrap span {
+            align-self: flex-end;
+        }
+
+    .playerDisplay {
+        width: 200px;
+        border-bottom: 1px solid #999;
+        padding: 15px;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        margin: .25em;
+    }
+
+    .chatBox {
+        width: 100%;
+        border: 1px solid #999;
+        font-size: 15pt;
+        float: left;
+        border-radius: .25em;
+        min-height: 15em;
+        max-height: 15em;
+        margin-bottom: .25em;
+        overflow: auto;
+        font-size: .75em;
+    }
+
+    .card-disabled {
+        background-color: lightgray;
+        cursor: no-drop;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="background-color:white; border-radius:.25em; padding:2em;">
+        <h1>@(newDeck ? "New Card" : Model.Text)</h1>
+        <hr />
+        <br />
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Details</h3>
+                <hr />
+
+                <div class="form-group">
+                    <label for="name">Text</label>
+                    <input type="text" class="form-control" id="name" placeholder="Card Text" value="@(newDeck ? "" : Model.Text)" @(allowedToEdit ? "" : "disabled")>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Draw</label>
+                    <input type="number" class="form-control" id="draw" placeholder="0" value="@(newDeck ? 1 : Model.Draw)" @(allowedToEdit ? "" : "disabled")>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Pick</label>
+                    <input type="number" class="form-control" id="pick" placeholder="1" value="@(newDeck ? 1 : Model.Pick)" @(allowedToEdit ? "" : "disabled")>
+                </div>
+
+                @if (newDeck == false)
+                {
+                    <p>Created by: @Model.CreatedBy</p>
+                }
+
+            </div>
+            <div class="d-lg-none" width="100%">
+                &nbsp;
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex justify-content-center">
+                    <div class="card card-black" id="@Model.BlackCardID">
+                        <div class="card-text" id="cardInnerText">
+                            @Html.Raw(Model.Text)
+                        </div>
+                        <div class="wrap card-bottom">
+                            <span>Deck Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        @if (allowedToEdit)
+        {
+        <input type="button" id="submit" class="btn btn-success float-right" onclick="Save()" value="Save" />
+        }
+        <input type="button" id="submit" class="btn btn-primary float-right" onclick="window.location.href = '/Deck/Index'" value="Back" />
+
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/jquery.fittext.js"></script>
+    <script>
+        jQuery(".card-text").fitText();
+        jQuery(".playerDisplay").fitText();
+    </script>
+
+    <script>
+
+        var oldVal = '';
+
+        $('#name').on('change textInput input', function () {
+            var val = this.value;
+            if (val !== oldVal) {
+                oldVal = val;
+
+                var tex = $('#name').val();
+                $('#cardInnerText').text(tex);
+                jQuery(".card-text").fitText();
+            }
+        });
+
+        function UpdateCardText() {
+            var tex = $('#name').val();
+            $('#cardInnerText').text(tex);
+            jQuery(".card-text").fitText();
+        }
+
+            function Save() {
+                $("#submit").prop("disabled", true);
+
+                $.ajax({
+                    url: '@Url.Action("Save", "BlackCard")',
+                    type: 'POST',
+                    traditional: true,
+                    data: {
+                        "BlackCardID": @(newDeck ? "null" : Model.BlackCardID.ToString()),
+                        "Text": $('#name').val(),
+                        "Pick": $('#pick').val(),
+                        "Draw": $('#draw').val()
+                    },
+                    success: function(msg) {
+                        console.log(msg);
+
+                        if (msg.error == true) {
+                            alert(msg.message);
+                            $("#submit").prop("disabled", false);
+                        }
+
+                        window.location.href = '@Url.Action("Index", "BlackCard")';
+                    },
+                    error: function (msg) {
+                        alert(msg);
+                    },
+                    complete: function (msg, bruh) {
+
+                    }
+                });
+            }
+    </script>
+}

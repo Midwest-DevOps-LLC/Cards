@@ -1,0 +1,193 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+
+    ViewData["Title"] = "Black Cards";
+    ViewBag.Page = "Black Card";
+
+    var userID = Context.Session.GetInt32("UserID");
+}
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="background-color:white; border-radius:.25em; padding:2em;">
+        <h1>Black Cards</h1>
+        <hr />
+        <br />
+        <div class="row">
+            <div class="col-lg-12">
+                @if (userID.HasValue)
+                {
+                    <input type="button" class="btn btn-success float-right" onclick="window.location.href = '/BlackCard/View';" value="+ Add" />
+                }
+
+                <div style="">
+                    <h3>Options</h3>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="filterType">Select card filter:</label>
+                                <select class="form-control" id="deckFilter">
+                                    <option id="s1">Default & Your Cards</option>
+                                    <option id="s2">Default</option>
+                                    <option id="s3">Your Cards</option>
+                                    <option id="s4">All Cards</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="searchName">Name:</label>
+                                <input type="text" class="form-control" id="searchName" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <input type="button" class="btn btn-primary float-right" onclick="LoadCardList()" value="Search" />
+
+                    <div id="modalWhiteCardTable" style="">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            LoadCardList();
+
+            @(userID.HasValue ? "" : "HideUserFilters();")
+        });
+
+        function HideUserFilters() {
+            $("#deckFilter option[id='s2']").attr("selected", "selected");
+            $('#deckFilter').children('option').hide()
+        }
+
+        //function FindCardsByName(name) {
+        //    $('.cardText').each(function (i, e) {
+        //        if (e.innerText.toUpperCase().includes(name.toUpperCase() == false)){
+
+        //        }
+        //    });
+        //}
+
+        //function AddCard(id, text, element) {
+        //    if (arr().includes(id) == false) {
+        //        $('table#tblWhiteCards').append("<tr id='" + id + "'><td>" + text + "</td><td><input type='button' class='btn btn-danger' onclick='RemoveCard("+id+")' value='delete' /></td></tr>");
+
+        //        //$(element).closest('tr').remove();
+
+        //        addSelectedCardID(id);
+        //    }
+        //    else {
+        //        alert("Card already in table")
+        //    }
+        //}
+
+        @*var selectedCardIDs = @("[" + string.Join(",", Model.Deck.WhiteCards.Select(x => x.WhiteCardID)) + "]");
+
+        function addSelectedCardID(id) {
+            if (selectedCardIDs.includes(id) == false) {
+                selectedCardIDs.push(id)
+                HideCardInList(id);
+
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function removeSelectedCardID(id) {
+            if (selectedCardIDs.includes(id) == false) {
+
+                return false;
+            } else {
+                ShowCardInList(id);
+
+                return true;
+            }
+        }
+
+        function HideCardInList(id) {
+            $('#r' + id).hide();
+        }
+
+        function ShowCardInList(id) {
+            $('#r' + id).show();
+        }*@
+
+        function LoadCardList() {
+            $.ajax({
+                url: '@Url.Action("CardList", "BlackCard")',
+                type: 'POST',
+                traditional: true,
+                data: {
+                    "filterName": $('#searchName').val(),
+                    "filterDeck": $('#deckFilter').find(":selected").attr('id')
+                },
+                success: function(msg) {
+                    $('#modalWhiteCardTable')[0].innerHTML = msg;
+                }
+            });
+
+            //hide ids that have already been added
+
+        }
+
+        //function RemoveCard(id) { //need to unhide card in list 
+        //    $('table#tblWhiteCards tr#' + id).remove();
+
+        //    removeSelectedCardID(id);
+        //}
+
+        @*function Save() {
+            $("#submit").prop("disabled", true);
+
+            $.ajax({
+                url: '@Url.Action("Save", "Deck")',
+                type: 'POST',
+                traditional: true,
+                data: {
+                    "DeckID": @(newDeck ? "null" : Model.Deck.DeckID.GetValueOrDefault().ToString()),
+                    "DeckName": $('#name').val(),
+                    "WhiteCardIDs": [arr()],
+                    "Message": ""
+                },
+                success: function(msg) {
+                    console.log(msg);
+
+                    if (msg.error == true) {
+                        alert(msg.message);
+                        $("#submit").prop("disabled", false);
+                    }
+
+                    window.location.href = '@Url.Action("Index", "Deck")';
+                },
+                complete: function (msg, bruh) {
+
+                }
+            });
+        }
+
+        function arr() {
+            var listOfWhiteCardIDs = [];
+
+            $("#tblWhiteCards tr").each(function () {
+                if (this.id != "") {
+                    listOfWhiteCardIDs.push(parseInt(this.id));
+                }
+            });
+
+            return listOfWhiteCardIDs;
+        }*@
+    </script>
+}

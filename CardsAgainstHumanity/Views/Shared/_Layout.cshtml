@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CardsAgainstHumanity</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/6f301b2300.js"></script>
+</head>
+<body>
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color sticky-top">
+        <a class="navbar-brand" href="~/Home/Index"><span class="hideOnSmall">Cards Against Humanity</span><span class="showOnSmall">Cards Against Humanity</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item @(ViewBag.Page == "Home" ? "active" : "none") ">
+                    <a class="nav-link" href="/Home/Index">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item @(ViewBag.Page == "Card Battle" ? "active" : "none") ">
+                    <a class="nav-link" href="/CardBattle/Index">
+                        Card Battle
+                    </a>
+                </li>
+                <li class="nav-item @(ViewBag.Page == "Game" ? "active" : "none") ">
+                    <a class="nav-link" href="/Game/Index">
+                        Games
+                    </a>
+                </li>
+                <li class="nav-item @(ViewBag.Page == "Deck" ? "active" : "none") ">
+                    <a class="nav-link" href="/Deck/Index">
+                        Decks
+                    </a>
+                </li>
+                <li class="nav-item @(ViewBag.Page == "Black Card" ? "active" : "none") ">
+                    <a class="nav-link" href="/BlackCard/Index">
+                        Black Cards
+                    </a>
+                </li>
+                <li class="nav-item @(ViewBag.Page == "White Card" ? "active" : "none") ">
+                    <a class="nav-link" href="/WhiteCard/Index">
+                        White Cards
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                @if (string.IsNullOrEmpty(Context.Session.GetInt32("UserID").ToString()))
+                {
+                    <li class="nav-item @(ViewBag.Page == "Login" ? "active" : "none")">
+                        <a href="/Login/Index" class="nav-link waves-effect waves-light">
+                            Login / Register
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                            Hello @Context.Session.GetString("Username")
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                             aria-labelledby="navbarDropdownMenuLink-333" style="background-color: #1FA89C">
+                            <a class="dropdown-item" href="/User/Index/@Context.Session.GetInt32("UserID").ToString()">My Account</a>
+                            @*<a class="dropdown-item" href="/Product/User/@Context.Session.GetInt32("UserID").ToString()">My Products</a>*@
+                            <a class="dropdown-item" href="/Login/Logout">Log Out</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid bg-grey">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - CardsAgainstHumanity - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+<div id="success-message" class="StatusPopup">
+    Successfully.
+</div>
+<div id="error-message" class="StatusPopup" style="background-color:#dc3545">
+    An Error Has Occurred.
+</div>

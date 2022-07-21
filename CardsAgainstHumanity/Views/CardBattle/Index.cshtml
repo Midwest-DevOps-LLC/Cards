@@ -1,0 +1,37 @@
+﻿@model DataEntities.CardBattle.CardBattleIndex
+
+@{
+    ViewData["Title"] = "Card Battle";
+    ViewBag.Page = "Card Battle";
+}
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="background-color:white; border-radius:.25em; padding:2em;">
+        <h1>Card Battle</h1>
+        <hr />
+        <div class="row">
+            <div class="col-lg-8">
+                <div>Judge two Cards and pick the best one</div>
+                <br />
+                <br />
+                <input class="btn btn-primary" type="button" onclick="window.location.href = '/CardBattle/CardBattle';" value="Start" />
+            </div>
+            <div class="d-lg-none" width="100%">
+                &nbsp;
+            </div>
+            <div class="col-lg-4">
+                Top 10 Cards
+
+                <table class="table table-striped table-responsive-md">
+                    <tr><th>Rank</th><th>Card</th></tr>
+                    @foreach (var card in Model.WhiteCards)
+                    {
+                        <tr><td>@card.Rank</td><td>@Html.Raw(card.CardText)</td></tr>
+                    }
+                </table> 
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
